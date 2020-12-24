@@ -1,0 +1,40 @@
+#%RAML 1.0 DataType
+type: object
+properties:
+      OID:
+        example: OID10
+        type: string
+      PID:
+        example: PID10
+        type: string
+      PName:
+        example: Pd10
+        type: string
+      CID:
+        example: CID10
+        type: string
+      ODt:
+        example: 2020-12-23T03:45:11
+        type: datetime-only
+      Quantity:
+        example: 1
+        type: integer
+      ShipDt:
+        example: 2020-12-23T03:45:11
+        type: datetime-only
+      TotalPrice:
+        example: 100000.00
+        type: number
+      PaymentDt:
+        example: 2020-12-23T03:45:11
+        type: datetime-only
+      PaymentStat:
+        enum:
+          - Success
+          - Failed
+          - Processing
+        example: Success
+        type: string
+      ShipAddr:
+        example: Mumbai, USA
+        type: string 

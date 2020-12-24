@@ -1,0 +1,75 @@
+#%RAML 1.0
+types:
+  order: !include /data-types/orderdt.raml
+  product: !include /data-types/Productdt.raml
+securitySchemes:
+  secured: !include /securityscheme.raml
+
+securedBy: [secured]
+
+/ord:
+  get:
+    responses:
+      200:
+        body:
+          application/json:
+            type: order[]
+            examples:
+              !include /examples/orders.raml
+
+  post:
+    body:
+      application/json:
+        examples:
+          !include /examples/sendOrder.raml
+    responses:
+      201:
+        body:
+          application/json:
+            example:
+              {
+		message: Sent Successfully
+		}
+
+  /{OrdId}:
+    patch:
+      body:
+        application/json:
+          examples:
+            !include /examples/sendOrder.raml
+      responses:
+        200:
+          body:
+            application/json:
+              example:
+                {
+			message: Updated succesfully
+		}
+
+    delete:
+      responses:
+        200:
+          body:
+            application/json:
+              example:
+                {
+			message: Deleted but not really
+		}
+
+/prod:
+    
+  /{ProdID}:
+    get:
+      responses:
+        200:
+          body:
+            application/json:
+              type: product
+              examples:
+                !include /examples/getprodprice.raml
+                
+      
+
+          
+            
+      
